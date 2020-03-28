@@ -67,12 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fifth.html" />
+    <Content Include="Sixth.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\FirstTaskHandler.cs" />
     <Content Include="App_Code\SecondTaskHandler.cs" />
     <Content Include="App_Code\ThirdTaskHandler.cs" />
+    <Content Include="App_Code\FourthTaskHandler.cs" />
+    <Content Include="App_Code\FifthTaskHandler.cs" />
+    <Content Include="App_Code\SixthTaskHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +89,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_LocalResources\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -100,7 +108,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64505</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64505/</IISUrl>
+          <IISUrl>http://localhost:64506/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
