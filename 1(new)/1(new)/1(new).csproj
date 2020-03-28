@@ -70,6 +70,7 @@
     <Content Include="Fifth.html" />
     <Content Include="Sixth.html" />
     <Content Include="Web.config" />
+    <Content Include="WSpage.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\FirstTaskHandler.cs" />
@@ -78,6 +79,7 @@
     <Content Include="App_Code\FourthTaskHandler.cs" />
     <Content Include="App_Code\FifthTaskHandler.cs" />
     <Content Include="App_Code\SixthTaskHandler.cs" />
+    <Content Include="App_Code\WebSocketHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
