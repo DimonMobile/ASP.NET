@@ -1,0 +1,28 @@
+﻿
+@using _3.Models
+@{
+    Layout = null;
+    Data[] data = ViewBag.getall;
+    Data find2 = ViewBag.find2;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Hello, World!</h1>
+        <h2>GetAll</h2>
+        @foreach (Data d in data)
+        {
+            <p>@d.Id. @d.Name @d.Spec</p>
+        }
+        <h2>Find</h2>
+        <p>@find2.Id.  @find2.Name  @find2.Spec</p>
+    </div>
+</body>
+</html>

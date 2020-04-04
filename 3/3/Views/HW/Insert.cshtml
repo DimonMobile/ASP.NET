@@ -1,0 +1,24 @@
+﻿
+@using _3.Models
+@{
+    Layout = null;
+    Data[] data = ViewBag.getall;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Insert</title>
+</head>
+<body>
+    <div> 
+        <h2>@ViewBag.message</h2>
+        @foreach(Data d in data)
+        {
+            <p>@d.Id. @d.Name @d.Spec</p>
+        }
+    </div>
+</body>
+</html>
