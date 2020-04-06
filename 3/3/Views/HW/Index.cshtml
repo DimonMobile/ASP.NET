@@ -16,14 +16,18 @@
 <body>
     <div> 
         <h6>@ViewBag.kek</h6>
-        <h1>Hello, World!</h1>
-        <h2>GetAll</h2>
-        @foreach (Data d in data)
-        {
-            <p>@d.Id. @d.Name @d.Spec</p>
-        }
-        <h2>Find</h2>
-        <p>@find2.Id.  @find2.Name  @find2.Spec</p>
+        <table>
+            @foreach (Data d in data)
+            {
+            <tr>
+                <td>@d.Id</td>
+                <td>@d.Name</td>
+                <td>@d.Spec</td>
+                <td><a href="#">Edit</a> | <a href="/hw/delete/@d.Id">Delete</a></td>
+            </tr>
+            }
+        </table>
+        <a href="#">Add new</a>
     </div>
 </body>
 </html>

@@ -11,6 +11,8 @@ namespace _3.Controllers
     public class HWController : Controller
     {
         Models.HW_DB db = new Models.HW_DB();
+
+        [HttpGet]
         public ActionResult Index()
         {
             ViewBag.getall = db.GetAll();
@@ -27,6 +29,19 @@ namespace _3.Controllers
 
             ViewBag.getall = db.GetAll();
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Delete()
+        {
+            return null;
         }
     }
 }

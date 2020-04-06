@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -25,6 +27,7 @@ namespace _3.Models
 
         public Data Find(int id)
         {
+            loadData();
             Data readed;
             if (!this.database.TryGetValue(new Data() { Id = id }, out readed))
                 throw new KeyNotFoundException();
@@ -33,41 +36,66 @@ namespace _3.Models
 
         public bool Insert(Data data)
         {
+            loadData();
             if (this.database.Contains(data))
                 return false;
-            return this.database.Add(data);
+            this.database.Add(data);
+            saveData();
+            return true;
         }
 
         public bool Update(Data data)
         {
+            loadData();
             if (this.database.Contains(data))
             {
                 this.database.Remove(data);
                 return this.database.Add(data);
             }
+            saveData();
             return false;
         }
 
         public bool Delete(Data data)
         {
+            loadData();
             if (this.database.Contains(data))
                 return this.database.Remove(data);
+            saveData();
 
             return false;
         }
 
         public Data[] GetAll()
         {
-            Data[] result = new Data[this.database.Count];
-            int idx = 0;
-            foreach (Data dat in this.database)
-                result[idx++] = dat;
+            SortedSet<Data> objects = loadData();
+            Data[] result = new Data[objects.Count];
+            int i = 0;
+            foreach (Data dt in objects)
+                result[i++] = dt;
 
             return result;
         }
+
+        private void saveData()
+        {
+            using (StreamWriter stream = new StreamWriter(@"d:\MyFiles\BSTU\3rd\2nd\ASP\ASP.NET\3\3\data.json"))
+            {
+                stream.Write(JsonConvert.SerializeObject(this.database));
+            }
+        }
+
+        private SortedSet<Data> loadData()
+        {
+            Data[] objects;
+            using (StreamReader stream = new StreamReader(@"d:\MyFiles\BSTU\3rd\2nd\ASP\ASP.NET\3\3\data.json"))
+            {
+                objects = JsonConvert.DeserializeObject<Data[]>(stream.ReadToEnd());
+            }
+            return new SortedSet<Data>(objects, new DataComparer());
+        }
     }
 
-    [Serializable]
     public class Data
     {
         public int Id { get; set; }
