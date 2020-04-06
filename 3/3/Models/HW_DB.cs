@@ -67,6 +67,7 @@ namespace _3.Models
         }
     }
 
+    [Serializable]
     public class Data
     {
         public int Id { get; set; }

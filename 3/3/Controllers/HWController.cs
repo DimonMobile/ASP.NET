@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,7 +15,6 @@ namespace _3.Controllers
         {
             ViewBag.getall = db.GetAll();
             ViewBag.find2 = db.Find(2);
-
             return View();
         }
 
