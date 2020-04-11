@@ -15,6 +15,7 @@
 </head>
 <body>
     <div> 
+        <h3>@ViewBag.message</h3>
         <h6>@ViewBag.kek</h6>
         <table>
             @foreach (Data d in data)
@@ -23,11 +24,11 @@
                 <td>@d.Id</td>
                 <td>@d.Name</td>
                 <td>@d.Spec</td>
-                <td><a href="#">Edit</a> | <a href="/hw/delete/@d.Id">Delete</a></td>
+                <td><a href="/Dict/Update/@d.Id">Edit</a> | <a href="/dict/delete/@d.Id">Delete</a></td>
             </tr>
             }
         </table>
-        <a href="#">Add new</a>
+        <a href="/dict/add">Add new</a>
     </div>
 </body>
 </html>

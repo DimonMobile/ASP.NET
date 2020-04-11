@@ -14,9 +14,9 @@ namespace _3
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "HW",
+                name: "Dict",
                 url: "{controller}/{action}",
-                defaults: new { controller = "HW", action = "Index" }
+                defaults: new { controller = "Dict", action = "Index" }
             );
 
             routes.MapRoute(

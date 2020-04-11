@@ -8,21 +8,13 @@ using System.Web;
 
 namespace _3.Models
 {
-    public class HW_DB
+    public class Dict_DB
     {
         SortedSet<Data> database = null;
 
-        public HW_DB()
+        public Dict_DB()
         {
-            this.database = new SortedSet<Data>(
-                new Data[]
-                {
-                    new Data {Id = 1, Name = "Петров П.П.", BDate = new DateTime(2000, 12, 2), Spec = "ИСиТ", SYear = 2018},
-                    new Data {Id = 2, Name = "Иванов И.И.", BDate = new DateTime(2001, 11, 3), Spec = "ИСиТ", SYear = 2018},
-                    new Data {Id = 3, Name = "Сидоров С.С.", BDate = new DateTime(2002, 10, 4), Spec = "ИСиТ", SYear = 2018},
-                    new Data {Id = 4, Name = "Мерченев М.М", BDate = new DateTime(1999, 5, 5), Spec = "ИСиТ", SYear = 2018},
-                }, new DataComparer()
-            );
+            loadData();
         }
 
         public Data Find(int id)
@@ -50,7 +42,7 @@ namespace _3.Models
             if (this.database.Contains(data))
             {
                 this.database.Remove(data);
-                return this.database.Add(data);
+                this.database.Add(data);
             }
             saveData();
             return false;
@@ -60,10 +52,10 @@ namespace _3.Models
         {
             loadData();
             if (this.database.Contains(data))
-                return this.database.Remove(data);
+                this.database.Remove(data);
             saveData();
 
-            return false;
+            return true;
         }
 
         public Data[] GetAll()
@@ -79,7 +71,7 @@ namespace _3.Models
 
         private void saveData()
         {
-            using (StreamWriter stream = new StreamWriter(@"d:\MyFiles\BSTU\3rd\2nd\ASP\ASP.NET\3\3\data.json"))
+            using (StreamWriter stream = new StreamWriter(@"D:\CodeProj\BSTU\ASP\ASP.NET\3\3\data.json"))
             {
                 stream.Write(JsonConvert.SerializeObject(this.database));
             }
@@ -88,11 +80,12 @@ namespace _3.Models
         private SortedSet<Data> loadData()
         {
             Data[] objects;
-            using (StreamReader stream = new StreamReader(@"d:\MyFiles\BSTU\3rd\2nd\ASP\ASP.NET\3\3\data.json"))
+            using (StreamReader stream = new StreamReader(@"D:\CodeProj\BSTU\ASP\ASP.NET\3\3\data.json"))
             {
                 objects = JsonConvert.DeserializeObject<Data[]>(stream.ReadToEnd());
             }
-            return new SortedSet<Data>(objects, new DataComparer());
+            this.database = new SortedSet<Data>(objects, new DataComparer());
+            return this.database;
         }
     }
 
