@@ -15,7 +15,9 @@ namespace _3.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.getall = db.GetAll();
+            Models.Data[] arr = db.GetAll();
+            Array.Sort(arr, new Models.DataSorter());
+            ViewBag.getall = arr;
             ViewBag.find2 = db.Find(2);
             return View();
         }

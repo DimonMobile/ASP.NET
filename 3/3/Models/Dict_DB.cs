@@ -105,4 +105,12 @@ namespace _3.Models
             return x.Id - y.Id;
         }
     }
+
+    public class DataSorter : IComparer<Data>
+    {
+        public int Compare(Data x, Data y)
+        {
+            return string.Compare(x.Name, y.Name);
+        }
+    }
 }
