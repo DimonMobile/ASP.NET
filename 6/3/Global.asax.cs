@@ -1,3 +1,6 @@
+using _3.App_Code;
+using Ninject;
+using Ninject.Web.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +16,10 @@ namespace _3
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // dependency injection
+            var kernel = new StandardKernel(new NIConfig());
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }
 }

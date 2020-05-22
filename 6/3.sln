@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3", "3\3.csproj", "{52703E6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonRepository", "JsonRepository\JsonRepository.csproj", "{70D077E0-1F0E-40AB-90FF-FBB8403CAE66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{DEF17B12-2532-4F92-A338-5DA464459CA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilsNET", "UtilsNET\UtilsNET.csproj", "{90913429-FFB2-40E4-9424-821414022588}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{70D077E0-1F0E-40AB-90FF-FBB8403CAE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70D077E0-1F0E-40AB-90FF-FBB8403CAE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70D077E0-1F0E-40AB-90FF-FBB8403CAE66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DEF17B12-2532-4F92-A338-5DA464459CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEF17B12-2532-4F92-A338-5DA464459CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEF17B12-2532-4F92-A338-5DA464459CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEF17B12-2532-4F92-A338-5DA464459CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90913429-FFB2-40E4-9424-821414022588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90913429-FFB2-40E4-9424-821414022588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90913429-FFB2-40E4-9424-821414022588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90913429-FFB2-40E4-9424-821414022588}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

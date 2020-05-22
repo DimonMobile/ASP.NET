@@ -5,14 +5,18 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Utils;
+using UtilsNET;
 
 namespace _3.Controllers
 {
     public class DictController : Controller
     {
-        IPhoneDictionary db = new BSTU.JsonRepository.Repository();
-        //new JsonRepository();
+        IPhoneDictionary db = null;
+
+        public DictController(IPhoneDictionary dictionary)
+        {
+            db = dictionary;
+        }
 
         [HttpGet]
         public ActionResult Index()
