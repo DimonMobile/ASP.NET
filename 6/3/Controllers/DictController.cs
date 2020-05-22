@@ -5,18 +5,20 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Utils;
 
 namespace _3.Controllers
 {
     public class DictController : Controller
     {
-        Models.Dict_DB db = new Models.Dict_DB();
+        IPhoneDictionary db = new BSTU.JsonRepository.Repository();
+        //new JsonRepository();
 
         [HttpGet]
         public ActionResult Index()
         {
-            Models.Data[] arr = db.GetAll();
-            Array.Sort(arr, new Models.DataSorter());
+            Data[] arr = db.GetAll();
+            Array.Sort(arr, new DataSorter());
             ViewBag.getall = arr;
             ViewBag.find2 = db.Find(2);
             return View();
@@ -24,7 +26,7 @@ namespace _3.Controllers
 
         public ActionResult Insert(int id, string name, string spec, int syear, DateTime bdate)
         {
-            if (db.Insert(new Models.Data { Id = id, Name = name, Spec = spec, SYear = syear, BDate = bdate }))
+            if (db.Insert(new Data { Id = id, Name = name, Spec = spec, SYear = syear, BDate = bdate }))
                 ViewBag.message = "Insert OK";
             else
                 ViewBag.message = "Insert fails";
@@ -43,7 +45,7 @@ namespace _3.Controllers
         [HttpPost]
         public ActionResult DeleteSave(int id)
         {
-            Models.Data dt = new Models.Data();
+            Data dt = new Data();
             dt.Id = id;
             db.Delete(dt);
             return RedirectToAction("index");
@@ -58,14 +60,14 @@ namespace _3.Controllers
         [HttpPost]
         public ActionResult AddSave(int id, string name, string spec, int syear, DateTime bdate)
         {
-            db.Insert(new Models.Data { Id = id, Name = name, Spec = spec, SYear = syear, BDate = bdate });
+            db.Insert(new Data { Id = id, Name = name, Spec = spec, SYear = syear, BDate = bdate });
             return RedirectToAction("index");
         }
 
         [HttpGet]
         public ActionResult Update(int id)
         {
-            Models.Data dat = db.Find(id);
+            Data dat = db.Find(id);
             ViewBag.data = dat;
             ViewBag.date = dat.BDate.ToString("yyyy-MM-dd");
             return View();
@@ -74,7 +76,7 @@ namespace _3.Controllers
         [HttpPost]
         public ActionResult UpdateSave(int id, string name, string spec, int syear, DateTime bdate)
         {
-            db.Update(new Models.Data { Id = id, Name = name, Spec = spec, SYear = syear, BDate = bdate });
+            db.Update(new Data { Id = id, Name = name, Spec = spec, SYear = syear, BDate = bdate });
             return RedirectToAction("index");
         }
 

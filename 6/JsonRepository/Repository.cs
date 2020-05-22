@@ -1,18 +1,19 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Utils;
 
-namespace _3.Models
+namespace BSTU.JsonRepository
 {
-    public class Dict_DB
+    public class Repository : IPhoneDictionary
     {
         SortedSet<Data> database = null;
 
-        public Dict_DB()
+        public Repository()
         {
             loadData();
         }
@@ -69,48 +70,28 @@ namespace _3.Models
             return result;
         }
 
-        private void saveData()
+        public void saveData()
         {
-            using (StreamWriter stream = new StreamWriter(@"d:\MyFiles\BSTU\3rd\2nd\ASP\ASP.NET\3\3\data.json"))
+            using (StreamWriter stream = new StreamWriter(@"D:\CodeProj\BSTU\ASP\ASP.NET\6\3\data.json"))
             {
                 stream.Write(JsonConvert.SerializeObject(this.database));
             }
         }
 
-        private SortedSet<Data> loadData()
+        public SortedSet<Data> loadData()
         {
             Data[] objects;
-            using (StreamReader stream = new StreamReader(@"d:\MyFiles\BSTU\3rd\2nd\ASP\ASP.NET\3\3\data.json"))
+            using (StreamReader stream = new StreamReader(@"D:\CodeProj\BSTU\ASP\ASP.NET\6\3\data.json"))
             {
                 objects = JsonConvert.DeserializeObject<Data[]>(stream.ReadToEnd());
             }
             this.database = new SortedSet<Data>(objects, new DataComparer());
             return this.database;
         }
-    }
 
-    public class Data
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public DateTime BDate { get; set; }
-        public string Spec { get; set; }
-        public int SYear { get; set; }
-    }
-
-    public class DataComparer : IComparer<Data>
-    {
-        public int Compare(Data x, Data y)
+        public void Dispose()
         {
-            return x.Id - y.Id;
-        }
-    }
-
-    public class DataSorter : IComparer<Data>
-    {
-        public int Compare(Data x, Data y)
-        {
-            return string.Compare(x.Name, y.Name);
+            // Do nothing
         }
     }
 }
