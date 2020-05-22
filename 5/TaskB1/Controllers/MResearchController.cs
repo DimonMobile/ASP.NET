@@ -52,7 +52,7 @@ namespace TaskB1.Controllers
             return Content(content.ToString());
         }
 
-        [AcceptVerbs("put")]
+        [HttpPut]
         [Route("{letters:alpha:length(3, 4)}/{n:int}")]
         public ActionResult M04(string letters, int n)
         {
@@ -66,9 +66,11 @@ namespace TaskB1.Controllers
         }
 
         [HttpPost]
+        [Route(@"{email:regex(^\w+@\w+\.\w+$)}")]
+        // why "/" at the and of uri is necessary?
         public ActionResult M04(string email)
         {
-            return Content("M04");
+            return Content($"POST:MAIL\nmail - {email}");
         }
     }
 }
