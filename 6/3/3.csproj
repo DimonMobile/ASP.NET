@@ -148,6 +148,10 @@
       <Project>{70d077e0-1f0e-40ab-90ff-fbb8403cae66}</Project>
       <Name>JsonRepository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SqlServerRepository\SqlServerRepository.csproj">
+      <Project>{197c25b2-1ad7-43c3-882b-74d99f2731b8}</Project>
+      <Name>SqlServerRepository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UtilsNET\UtilsNET.csproj">
       <Project>{90913429-ffb2-40e4-9424-821414022588}</Project>
       <Name>UtilsNET</Name>

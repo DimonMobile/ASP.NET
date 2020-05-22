@@ -1,4 +1,5 @@
 ﻿using Ninject.Modules;
+using Ninject.Web.Common;
 using UtilsNET;
 
 namespace _3.App_Code
@@ -7,7 +8,7 @@ namespace _3.App_Code
     {
         public override void Load()
         {
-            Bind<IPhoneDictionary>().To<BSTU.JsonRepository.Repository>();
+            Bind<IPhoneDictionary>().To<BSTU.SqlServerRepository.Repository>().InRequestScope(); // or InSingletonScope(); or InThreadScope(); or InTransistentScope();
         }
     }
 }
