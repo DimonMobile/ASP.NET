@@ -139,6 +139,8 @@
     <Content Include="Views\Dict\Add.cshtml" />
     <Content Include="Views\Dict\Update.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Layout.cshtml" />
+    <Content Include="Views\Dict\_DisplayItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

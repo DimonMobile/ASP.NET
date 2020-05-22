@@ -83,7 +83,7 @@ namespace _3.Controllers
             db.Update(new Data { Id = id, Name = name, Spec = spec, SYear = syear, BDate = bdate });
             return RedirectToAction("index");
         }
-
+     
         protected override void OnException(ExceptionContext filterContext)
         {
             filterContext.ExceptionHandled = true;

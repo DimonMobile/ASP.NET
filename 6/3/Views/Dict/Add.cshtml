@@ -1,26 +1,26 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@section footer{
+    <footer>
+        This is a footer for index
+    </footer>
+}
+@helper InsertAddForm()
+{
+    <form action="/dict/addsave" method="post">
+        <input type="number" name="id" placeholder="id" /><br />
+        <input type="text" name="name" placeholder="name" /><br />
+        <input type="text" name="spec" placeholder="spec" /><br />
+        <input type="number" name="syear" placeholder="syear" /><br />
+        <input type="date" name="bdate" placeholder="bdate" /><br />
+        <input type="submit" />
+    </form>
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Add</title>
-</head>
-<body>
-    <div>
-        <h3>Add new</h3>
-        <form action="/dict/addsave" method="post">
-            <input type="number" name="id" placeholder="id" /><br/>
-            <input type="text" name="name"  placeholder="name"/><br />
-            <input type="text" name="spec"  placeholder="spec"/><br />
-            <input type="number" name="syear"  placeholder="syear"/><br />
-            <input type="date" name="bdate"  placeholder="bdate"/><br />
-            <input type="submit" />
-        </form>
-    </div>
-</body>
-</html>
+<div>
+    <h3>Add new</h3>
+    @InsertAddForm()
+</div>

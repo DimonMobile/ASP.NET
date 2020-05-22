@@ -1,34 +1,25 @@
 ﻿
 @using UtilsNET
 @{
-    Layout = null;
+    Layout = "~/Views/Layout.cshtml";
     Data[] data = ViewBag.getall;
     Data find2 = ViewBag.find2;
 }
 
-<!DOCTYPE html>
+@section footer{
+    <footer>
+        This is a footer for index
+    </footer>
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-        <h3>@ViewBag.message</h3>
-        <h6>@ViewBag.kek</h6>
-        <table>
-            @foreach (Data d in data)
-            {
-            <tr>
-                <td>@d.Id</td>
-                <td>@d.Name</td>
-                <td>@d.Spec</td>
-                <td><a href="/Dict/Update/@d.Id">Edit</a> | <a href="/dict/delete/@d.Id">Delete</a></td>
-            </tr>
-            }
-        </table>
-        <a href="/dict/add">Add new</a>
-    </div>
-</body>
-</html>
+<div>
+    <h3>@ViewBag.message</h3>
+    <h6>@ViewBag.kek</h6>
+    <table>
+        @foreach (Data d in data)
+        {
+            Html.RenderPartial("_DisplayItem", d);
+        }
+    </table>
+    <a href="/dict/add">Add new</a>
+</div>
