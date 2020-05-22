@@ -72,7 +72,7 @@ namespace BSTU.JsonRepository
 
         public void saveData()
         {
-            using (StreamWriter stream = new StreamWriter(@"d:\MyFiles\BSTU\3rd\2nd\ASP\ASP.NET\6\3\data.json"))
+            using (StreamWriter stream = new StreamWriter(@"D:\CodeProj\BSTU\ASP\ASP.NET\6\3\data.json"))
             {
                 stream.Write(JsonConvert.SerializeObject(this.database));
             }
@@ -81,7 +81,7 @@ namespace BSTU.JsonRepository
         public SortedSet<Data> loadData()
         {
             Data[] objects;
-            using (StreamReader stream = new StreamReader(@"d:\MyFiles\BSTU\3rd\2nd\ASP\ASP.NET\6\3\data.json"))
+            using (StreamReader stream = new StreamReader(@"D:\CodeProj\BSTU\ASP\ASP.NET\6\3\data.json"))
             {
                 objects = JsonConvert.DeserializeObject<Data[]>(stream.ReadToEnd());
             }

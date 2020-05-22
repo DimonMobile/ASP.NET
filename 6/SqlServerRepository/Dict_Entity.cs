@@ -17,7 +17,7 @@ namespace BSTU.SqlServerRepository
         public DbSet<Data> Dicts { get; set; }
 
         public Dict_Entity()
-            : base("name=Dict_Entity")
+            : base(@"name=Dict_Entity")
         {
         }
 
