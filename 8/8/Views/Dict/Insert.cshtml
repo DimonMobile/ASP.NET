@@ -1,0 +1,18 @@
+﻿
+@using UtilsNET
+@{
+    Layout = "~/Views/Layout.cshtml";
+    Data[] data = ViewBag.getall;
+}
+@section footer{
+    <footer>
+        This is a footer for insert
+    </footer>
+}
+<div>
+    <h2>@ViewBag.message</h2>
+    @foreach (Data d in data)
+    {
+        <p>@d.Id. @d.Name @d.Spec</p>
+    }
+</div>

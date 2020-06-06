@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{B3CF952B-9478-48A0-A362-7351C7351519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilsNET", "..\6\UtilsNET\UtilsNET.csproj", "{90913429-FFB2-40E4-9424-821414022588}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerRepository", "..\6\SqlServerRepository\SqlServerRepository.csproj", "{197C25B2-1AD7-43C3-882B-74D99F2731B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms", "Forms\Forms.csproj", "{ABC0E7E7-1D40-4690-BB56-B624078E54A1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B3CF952B-9478-48A0-A362-7351C7351519} = {B3CF952B-9478-48A0-A362-7351C7351519}
+		{463D2486-54D2-48E6-BB98-F9A83BFC89BE} = {463D2486-54D2-48E6-BB98-F9A83BFC89BE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFService", "WCFService\WCFService.csproj", "{463D2486-54D2-48E6-BB98-F9A83BFC89BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFHost", "WCFHost\WCFHost.csproj", "{656B37DD-5BD0-4670-BB7A-B2E279101A34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3CF952B-9478-48A0-A362-7351C7351519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3CF952B-9478-48A0-A362-7351C7351519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3CF952B-9478-48A0-A362-7351C7351519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3CF952B-9478-48A0-A362-7351C7351519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90913429-FFB2-40E4-9424-821414022588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90913429-FFB2-40E4-9424-821414022588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90913429-FFB2-40E4-9424-821414022588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90913429-FFB2-40E4-9424-821414022588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{197C25B2-1AD7-43C3-882B-74D99F2731B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{197C25B2-1AD7-43C3-882B-74D99F2731B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{197C25B2-1AD7-43C3-882B-74D99F2731B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{197C25B2-1AD7-43C3-882B-74D99F2731B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC0E7E7-1D40-4690-BB56-B624078E54A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC0E7E7-1D40-4690-BB56-B624078E54A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC0E7E7-1D40-4690-BB56-B624078E54A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC0E7E7-1D40-4690-BB56-B624078E54A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{463D2486-54D2-48E6-BB98-F9A83BFC89BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463D2486-54D2-48E6-BB98-F9A83BFC89BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463D2486-54D2-48E6-BB98-F9A83BFC89BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463D2486-54D2-48E6-BB98-F9A83BFC89BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{656B37DD-5BD0-4670-BB7A-B2E279101A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{656B37DD-5BD0-4670-BB7A-B2E279101A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{656B37DD-5BD0-4670-BB7A-B2E279101A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{656B37DD-5BD0-4670-BB7A-B2E279101A34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13C36A82-8301-4577-B022-DE4B748D4AC9}
+	EndGlobalSection
+EndGlobal

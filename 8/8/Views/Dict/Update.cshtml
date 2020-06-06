@@ -1,0 +1,25 @@
+﻿
+@using UtilsNET
+@{
+    Layout = "~/Views/Layout.cshtml";
+    Data data = ViewBag.data;
+    string date = ViewBag.date;
+}
+
+@section footer{
+    <footer>
+        This is a footer for update
+    </footer>
+}
+
+<div>
+    <h3>Update</h3>
+    <form action="/dict/updatesave" method="post">
+        <input type="number" name="id" placeholder="id" value="@data.Id" readonly /><br />
+        <input type="text" name="name" placeholder="name" value="@data.Name" /><br />
+        <input type="text" name="spec" placeholder="spec" value="@data.Spec" /><br />
+        <input type="number" name="syear" placeholder="syear" value="@data.SYear" /><br />
+        <input type="date" name="bdate" placeholder="bdate" value="@date" /><br />
+        <input type="submit" />
+    </form>
+</div>

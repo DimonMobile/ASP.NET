@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://plot.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://plot.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://plot.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDict">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDictResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDictResult" type="tns:ArrayOfData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Data" nillable="true" type="tns:Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Spec" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SYear" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddDict">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDictResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UdpDict">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UdpDictResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DelDict">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDictResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDictSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDict" />
+  </wsdl:message>
+  <wsdl:message name="GetDictSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDictResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDictSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDict" />
+  </wsdl:message>
+  <wsdl:message name="AddDictSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDictResponse" />
+  </wsdl:message>
+  <wsdl:message name="UdpDictSoapIn">
+    <wsdl:part name="parameters" element="tns:UdpDict" />
+  </wsdl:message>
+  <wsdl:message name="UdpDictSoapOut">
+    <wsdl:part name="parameters" element="tns:UdpDictResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelDictSoapIn">
+    <wsdl:part name="parameters" element="tns:DelDict" />
+  </wsdl:message>
+  <wsdl:message name="DelDictSoapOut">
+    <wsdl:part name="parameters" element="tns:DelDictResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Hello world test method</wsdl:documentation>
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDict">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all phone dictionary elements</wsdl:documentation>
+      <wsdl:input message="tns:GetDictSoapIn" />
+      <wsdl:output message="tns:GetDictSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDict">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add element</wsdl:documentation>
+      <wsdl:input message="tns:AddDictSoapIn" />
+      <wsdl:output message="tns:AddDictSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UdpDict">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update existing element</wsdl:documentation>
+      <wsdl:input message="tns:UdpDictSoapIn" />
+      <wsdl:output message="tns:UdpDictSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDict">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete existing element</wsdl:documentation>
+      <wsdl:input message="tns:DelDictSoapIn" />
+      <wsdl:output message="tns:DelDictSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://plot.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDict">
+      <soap:operation soapAction="http://plot.org/GetDict" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDict">
+      <soap:operation soapAction="http://plot.org/AddDict" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UdpDict">
+      <soap:operation soapAction="http://plot.org/UdpDict" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDict">
+      <soap:operation soapAction="http://plot.org/DelDict" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://plot.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDict">
+      <soap12:operation soapAction="http://plot.org/GetDict" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDict">
+      <soap12:operation soapAction="http://plot.org/AddDict" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UdpDict">
+      <soap12:operation soapAction="http://plot.org/UdpDict" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDict">
+      <soap12:operation soapAction="http://plot.org/DelDict" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://localhost:62608/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://localhost:62608/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -6,11 +6,18 @@ namespace UtilsNET
 {
     public class Data
     {
+        public Data()
+        { }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime BDate { get; set; }
         public string Spec { get; set; }
         public int SYear { get; set; }
+        override public string ToString()
+        {
+            return $"{Id}. {Name}";
+        }
     }
 
     public class DataComparer : IComparer<Data>

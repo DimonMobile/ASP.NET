@@ -9,7 +9,7 @@ namespace _3.App_Code
         public override void Load()
         {
             // or InSingletonScope(); or InThreadScope(); or InTransistentScope();
-            // Bind<IPhoneDictionary>().To<BSTU.JsonRepository.Repository>().InRequestScope(); // json file
+            //Bind<IPhoneDictionary>().To<BSTU.JsonRepository.Repository>().InRequestScope(); // json file
             Bind<IPhoneDictionary>().To<BSTU.SqlServerRepository.Repository>().InRequestScope(); // database
         }
     }

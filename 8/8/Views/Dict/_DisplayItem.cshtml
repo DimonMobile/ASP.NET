@@ -1,0 +1,11 @@
+﻿@using UtilsNET
+@model Data
+@{
+    Layout = null;
+}
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.Name</td>
+    <td>@Model.Spec</td>
+    <td><a href="/Dict/Update/@Model.Id">Edit</a> | <a href="/dict/delete/@Model.Id">Delete</a></td>
+</tr>

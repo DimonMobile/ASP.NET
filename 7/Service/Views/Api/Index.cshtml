@@ -1,0 +1,87 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <ul id="container">            
+        </ul>
+        <form>
+            <label>ID</label>
+            <input type="number" name="id" id="formId" />
+            <label>Name</label>
+            <input type="text" name="Name" id="formName" />
+            <a href="#" onclick="updateOld()">Update</a> | <a href="#" onclick="createNew()">Create</a>
+        </form>
+    </div>
+    <script>
+        let containerElement = document.getElementById('container');
+        let formIdElement = document.getElementById('formId');
+        let formNameElement = document.getElementById('formName');
+
+
+        function deleteItem(id) {
+            let name = formNameElement.value;
+            let toSend = `BDate=${encodeURIComponent('05-05-2000')}&Id=${id}&Name=${encodeURIComponent(name)}&SYear=1234&Spec=AUTO`;
+            fetch('/TS', {
+                method: 'DELETE',
+                body: toSend,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+                }
+            }).then(p => getAll());
+        }
+
+        function updateOld() {
+            let id = formIdElement.value;
+            let name = formNameElement.value;
+            let toSend = `BDate=${encodeURIComponent('05-05-2000')}&Id=${id}&Name=${encodeURIComponent(name)}&SYear=1234&Spec=AUTO`;
+            fetch('/TS', {
+                method: 'PUT',
+                body: toSend,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+                }
+            }).then(p => getAll());
+        }
+
+        function createNew() {
+            let id = formIdElement.value;
+            let name = formNameElement.value;
+            let toSend = `BDate=${encodeURIComponent('05-05-2000')}&Id=${id}&Name=${encodeURIComponent(name)}&SYear=1234&Spec=AUTO`;
+            fetch('/TS', {
+                method: 'POST',
+                body: toSend,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+                }
+            }).then(p => getAll());
+        }
+
+        function updateItem(id, name) {
+            formIdElement.value = id;
+            formNameElement.value = name;
+        }
+
+        function getAll() {
+            fetch(`/TS`).then(r => r.json()).then(obj => {
+                containerElement.innerHTML = '';
+                for (let jsonElement of obj) {
+                    let liElement = document.createElement('li');
+                    liElement.innerHTML = `${jsonElement.Id}. ${jsonElement.Name}; <a href="#" onclick="deleteItem(${jsonElement.Id})">Delete</a> | <a href="#" onclick="updateItem(${jsonElement.Id}, '${jsonElement.Name}')">Update</a>`;
+                    containerElement.appendChild(liElement);
+                }
+            });
+        };
+        getAll();
+    </script>
+</body>
+</html>

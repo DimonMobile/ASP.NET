@@ -1,0 +1,25 @@
+﻿
+@using UtilsNET
+@{
+    Layout = "~/Views/Layout.cshtml";
+    Data[] data = ViewBag.getall;
+    Data find2 = ViewBag.find2;
+}
+
+@section footer{
+    <footer>
+        This is a footer for index
+    </footer>
+}
+
+<div>
+    <h3>@ViewBag.message</h3>
+    <h6>@ViewBag.kek</h6>
+    <table>
+        @foreach (Data d in data)
+        {
+            Html.RenderPartial("_DisplayItem", d);
+        }
+    </table>
+    <a href="/dict/add">Add new</a>
+</div>
