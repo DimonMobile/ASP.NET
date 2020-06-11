@@ -30,19 +30,19 @@ namespace Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // var client = new WebService1SoapClient();
-            // listBox1.Items.Clear();
-            // foreach (Data item in client.GetDict())
-            // {
-            // listBox1.Items.Add($"{item.Id}>{item.Name}");
-            // }
+            var client = new WebService1SoapClient();
+            listBox1.Items.Clear();
+            foreach (Data item in client.GetDict())
+            {
+                listBox1.Items.Add($"{item.Id}>{item.Name}");
+            }
 
-            var client = new ServiceReference2.Service1Client("BasicHttpBinding_IService1");
+            /*var client = new ServiceReference2.Service1Client("BasicHttpBinding_IService1");
             client.Open();
             foreach (ServiceReference2.Data item in client.GetDict())
             {
                 listBox1.Items.Add($"{item.Id}>{item.Name}");
-            }
+            }*/
         }
 
         private void label1_Click(object sender, EventArgs e)
